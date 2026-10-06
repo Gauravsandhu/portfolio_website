@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --paper: #f7f8fc;
+  --ink: #1a1d2e;
+  --muted: #5b6078;
+  --rule: #d9dce8;
+  --grid: rgb(47 75 224 / 0.06);
+  --pen: #2f4be0;
+  --hl-progress: #ffe45c;
+  --hl-finished: #a6ecc2;
+  --hl-scrapped: #ffb3ab;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-pen: var(--pen);
+  --color-hl-progress: var(--hl-progress);
+  --color-hl-finished: var(--hl-finished);
+  --color-hl-scrapped: var(--hl-scrapped);
+  --font-display: var(--font-bricolage);
+  --font-serif: var(--font-literata);
+}
+
+body {
+  background-color: var(--paper);
+  /* faint graph paper */
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--hl-progress);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--pen);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Highlighter swipe: slightly uneven, sits behind the lower part of the text. */
+.highlight {
+  --hl: var(--hl-progress);
+  background-image: linear-gradient(
+    100deg,
+    transparent 0.3em,
+    var(--hl) 0.4em,
+    var(--hl) calc(100% - 0.4em),
+    transparent calc(100% - 0.25em)
+  );
+  background-size: 100% 0.62em;
+  background-position: 0 88%;
+  background-repeat: no-repeat;
+  padding-inline: 0.15em;
+  margin-inline: -0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.highlight-in-progress { --hl: var(--hl-progress); }
+.highlight-finished { --hl: var(--hl-finished); }
+.highlight-scrapped { --hl: var(--hl-scrapped); }
+
+/* Links in running text: ink-pen underline that thickens on hover. */
+.pen-link {
+  color: var(--pen);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-thickness 120ms;
+}
+.pen-link:hover {
+  text-decoration-thickness: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
