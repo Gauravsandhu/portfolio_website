@@ -5,7 +5,7 @@ export const site = {
   /** Full name, used only in the footer copyright. */
   legalName: "Gouravpreet Singh Sandhu",
   shortName: "Gaurav Sandhu",
-  url: "https://example.com", // replace once the domain is set up
+  url: "https://portfolio-website-pied-kappa-55.vercel.app", // replace once the domain is set up
   tagline:
     "Computer science student. I build small games, tools and whatever else I can't stop thinking about.",
   description:
@@ -13,10 +13,10 @@ export const site = {
   location: "Somewhere, Earth",
   email: "hello@example.com",
   links: [
-    { label: "GitHub", href: "https://github.com/your-handle" },
+    { label: "GitHub", href: "https://github.com/Gauravsandhu" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/your-handle" },
-    { label: "Email", href: "mailto:hello@example.com" },
-    { label: "Résumé", href: "/resume.pdf" },
+    { label: "Email", href: "mailto:gauravpreet2005@gmail.com" },
+
   ],
   /** Shown on the about page. Short sentences read best. */
   bio: [
