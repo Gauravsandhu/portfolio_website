@@ -16,7 +16,7 @@ Then open http://localhost:3000.
 ## Add a project
 
 1. Copy `src/content/projects/_template.mdx` to `src/content/projects/<slug>.mdx`. The file name becomes the URL (`/projects/<slug>`).
-2. Fill in `meta` at the top. `status` is one of `"in-progress"`, `"finished"` or `"scrapped"`.
+2. Fill in `meta` at the top. `status` is one of `"in-progress"`, `"finished"` or `"scrapped"`. `category` is one of the values in `CATEGORIES` in `src/lib/project-types.ts`. Add a new category there and it shows up on the projects page once a project uses it.
 3. Write the body. Wrap your takeaways in `<Learnings>…</Learnings>` to get the "What I learned" box.
 
 That's it. The home page, project list, filters and sitemap pick it up automatically.

@@ -23,6 +23,6 @@ export const site = {
     "I'm a computer science student who learns best by building things and occasionally breaking them on purpose.",
     "Most of my time goes into game development, systems programming and the odd design side quest. This site is where I keep track of all of it, including the projects that didn't make it.",
   ],
-  learningNow: ["Rust", "Shader programming", "Operating systems"],
+  learningNow: ["2D art, with Drawabox", "Rust", "Shader programming", "Operating systems"],
   interests: ["Game design", "Blender", "Photography", "Storytelling"],
 };

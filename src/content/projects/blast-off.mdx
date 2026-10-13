@@ -1,0 +1,52 @@
+export const meta = {
+  title: "Blast Off",
+  summary: "A 10-minute survival shooter: hold your lane as a cannon, blast the horde and survive until dawn.",
+  status: "in-progress",
+  category: "game-dev",
+  cover: "/projects/blast-off/horde.jpg",
+  started: "2026-08-11",
+  ended: null,
+  tags: ["Unity", "C#", "Game dev", "AI-assisted"],
+  links: { repo: "https://github.com/Gauravsandhu/BlastOff-Dawn" },
+};
+
+## What it is
+
+You're a cannon stuck in a lane on the left side of the screen, and the night is coming in from the right. Sliding up and down also swings your barrel, so dodging and aiming are the same skill. You can bank shots off the ceiling and floor, punch through crowds and collect the XP gems enemies drop. Every level-up deals you a hand of cards (Railgun, Scattershot, Heat Seeker, Ricochet, Second Wind and more), so each run builds differently.
+
+![Mid-run: the orange cannon on the left fires into a dense crowd of angry blob and block enemies under a purple night sky](/projects/blast-off/horde.jpg)
+
+A run lasts ten minutes. It gets darker and harder as it goes, with three bosses along the way. The last one is the Eclipse, a giant enemy cannon that fights the way you do.
+
+![The Eclipse boss, a huge dark cannon with glowing eyes, firing back at the player](/projects/blast-off/eclipse.jpg)
+
+Survive the whole night and the sun comes up.
+
+![The dawn screen: the sky turns orange and the word DAWN fills the screen](/projects/blast-off/dawn.jpg)
+
+- 8 enemy types, plus elites, rifts and scripted waves
+- 24 cards across five rarities, from Common to Legendary
+- A Workshop where you spend Embers on permanent upgrades
+- Endless mode, which unlocks once you see the sunrise
+- Versus mode: the original 1v1 local duel is still in there
+- Keyboard, mouse, gamepad and touch controls, with builds for Windows, macOS and the web
+
+Made in Unity 6 with URP 2D.
+
+## Why I started it
+
+It started in August as a small local multiplayer game: two cannons on opposite sides, shooting at each other. I wrote the core loop, the health system and the power-ups by hand.
+
+In October I wanted to see how far I could push it with Claude Code as a pair programmer. The duel got an overhaul in the style of ROUNDS, and then turned into a single-player survival game in the spirit of Vampire Survivors. My job shifted from writing every line to deciding what the game should feel like, playtesting and pushing back when something felt off.
+
+It's still in progress. The next step is publishing it on itch.io and CrazyGames.
+
+<Learnings>
+
+- Balance is mostly about pacing. The run went from 15 minutes to 10, and that fixed more than any single number change did.
+- Small rules make a big difference to fairness. Enemies can't be hit until they're on screen, and shots stop at the edge. Both changes made the game feel honest.
+- Stacking bonuses compound fast. Adding fire-rate upgrades together instead of multiplying them kept late runs from breaking.
+- Directing an AI is a skill of its own. Clear, specific feedback ("the barrel locks into a laser when pinned at the lane end") got far better results than "make it more fun".
+- Automated QA pays off. Scripted tours and soak runs with screenshots caught bugs I would never have found by hand.
+
+</Learnings>

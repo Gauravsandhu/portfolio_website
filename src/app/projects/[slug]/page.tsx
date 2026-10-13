@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StatusLabel } from "@/components/StatusLabel";
-import { formatMonth, getProject, getProjectSlugs } from "@/lib/projects";
+import { categoryLabel, formatMonth, getProject, getProjectSlugs } from "@/lib/projects";
 
 export const dynamicParams = false;
 
@@ -38,6 +38,8 @@ export default async function ProjectPage({
         <p className="mt-4 text-xl leading-relaxed text-muted">{project.summary}</p>
 
         <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 border-y border-rule py-4 font-display text-sm">
+          <dt className="text-muted">Category</dt>
+          <dd>{categoryLabel(project.category)}</dd>
           <dt className="text-muted">When</dt>
           <dd>
             {formatMonth(project.started)}
@@ -57,7 +59,8 @@ export default async function ProjectPage({
         </dl>
       </header>
 
-      <div className="prose prose-lg mt-10 max-w-none text-ink prose-headings:font-display prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-ink prose-p:text-ink prose-a:text-pen prose-strong:text-ink prose-code:text-ink prose-li:text-ink prose-li:marker:text-muted">
+      <div className="prose prose-lg mt-10 max-w-none text-ink prose-headings:font-display prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-ink prose-p:text-ink prose-a:text-pen prose-strong:text-ink prose-code:text-ink prose-li:text-ink prose-li:marker:text-muted prose-img:mx-auto prose-img:max-h-[32rem] prose-img:w-auto prose-img:rounded-lg">
+
         <Content />
       </div>
     </article>

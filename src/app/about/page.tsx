@@ -35,9 +35,14 @@ export default function AboutPage() {
           <h2 className="font-display text-xl font-semibold tracking-tight">
             <span className="highlight highlight-finished">Other interests</span>
           </h2>
-          <ul className="mt-4 space-y-1.5">
+          <ul className="mt-4 flex flex-wrap gap-2 font-display text-sm">
             {site.interests.map((item) => (
-              <li key={item}>{item}</li>
+              <li
+                key={item}
+                className="rounded-full border-2 border-ink/10 bg-paper px-3 py-1"
+              >
+                {item}
+              </li>
             ))}
           </ul>
         </section>

@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { STATUSES, type Project, type ProjectStatus } from "@/lib/project-types";
+import {
+  CATEGORIES,
+  STATUSES,
+  type Project,
+  type ProjectStatus,
+} from "@/lib/project-types";
 import { ProjectGrid } from "./ProjectRow";
 
 type Filter = ProjectStatus | "all";
@@ -45,13 +50,37 @@ export function ProjectFilter({ projects }: { projects: Project[] }) {
           );
         })}
       </div>
-      <div className="mt-6">
-        {visible.length > 0 ? (
-          <ProjectGrid projects={visible} />
-        ) : (
-          <p className="py-8 text-muted">No projects with this status yet.</p>
-        )}
-      </div>
+      {visible.length > 0 ? (
+        CATEGORIES.map((category) => {
+          const inCategory = visible.filter((p) => p.category === category.value);
+          if (inCategory.length === 0) return null;
+          return (
+            <section
+              key={category.value}
+              id={category.value}
+              className="mt-14 scroll-mt-8"
+            >
+              <h2 className="flex items-center gap-3 font-display text-2xl font-semibold tracking-tight">
+                <span
+                  aria-hidden
+                  className="size-4 rotate-12 rounded-[4px] border-2"
+                  style={{ backgroundColor: category.tint, borderColor: category.ink }}
+                />
+                {category.label}
+                <span className="text-base font-normal text-muted">
+                  {inCategory.length}
+                </span>
+              </h2>
+              <p className="mt-1 text-muted">{category.description}</p>
+              <div className="mt-5">
+                <ProjectGrid projects={inCategory} />
+              </div>
+            </section>
+          );
+        })
+      ) : (
+        <p className="mt-6 py-8 text-muted">No projects with this status yet.</p>
+      )}
     </>
   );
 }

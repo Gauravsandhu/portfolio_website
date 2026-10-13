@@ -1,25 +1,43 @@
 export const meta = {
   title: "Candy Grub",
-  summary: "A match-three puzzle game made for a game design course.",
+  summary: "A physics puzzle game: time the swinging cannon, launch the Grub, grab the stars and land it in the candy basket.",
   status: "finished",
-  started: "2025-09-10",
-  ended: "2025-12-05",
-  tags: ["Unity", "Game design", "Team project"],
-  links: { demo: "" },
+  category: "game-dev",
+  cover: "/projects/candy-grub/grub-sheet.jpg",
+  started: "2026-09-11",
+  ended: "2026-10-07",
+  tags: ["Unity", "C#", "Game design", "AI-assisted"],
+  links: { repo: "https://github.com/Gauravsandhu/Candy-Grub" },
 };
 
 ## What it is
 
-Placeholder text. A colourful match-three game with a hungry worm that eats the candy you clear.
+A level-based puzzle game in the spirit of Cut the Rope. Instead of dropping candy into a creature's mouth, you launch the creature itself. The Grub sits in a cannon that swings back and forth on its own. You pick the moment to fire, the Grub bounces off walls and loses speed as it flies, and the goal is to land it in the candy basket.
+
+Each level has three stars to collect on the way. Reaching the basket with no stars still counts as a loss.
+
+- Five levels, each adding something new: bouncy pads that speed the Grub up, and in Level 5, portals that carry it across a wall splitting the screen
+- A level select that unlocks levels in order and remembers your best star count
+- A short trajectory preview while you aim, plus sound effects, particles, camera shake and a music and SFX options menu
+- Mouse, keyboard, touch and gamepad controls
+
+The Grub is a mix of Kirby, Om Nom and a green onion.
+
+![The Grub character sheet: a round pink creature with a leafy sprout, shown in flight, bouncing and launching from a cannon toward a basket of candy](/projects/candy-grub/grub-sheet.jpg)
+
+The concept art and the Grub's sprite sheet were generated with ChatGPT. Most of the other art and sounds are free packs from itch.io, Kenney and Brackeys, all credited in the repo.
 
 ## Why I started it
 
-Placeholder text. It was the final project for a game design course, built with a team of four.
+I wanted to combine two games I'd already spent time with: my own [Blast Off](/projects/blast-off), with its cannon, and Cut the Rope's bite-sized physics puzzles. I wrote a game design document first, covering the core loop, the mechanics and a list of stretch ideas, and then built a working prototype in about two weeks.
+
+After that I used Claude Code for a cleanup pass. It fixed bugs, restructured the code around a level manager and a save system, and added 16 automated tests. It also built most of the "future scope" list from my design doc: star animations, level locks, sound effects, and portals.
 
 <Learnings>
 
-- Playtesting with people who aren't on the team changes everything.
-- Juice (screen shake, particles, sound) matters more than I thought.
-- Git merge conflicts in Unity scenes are their own special kind of pain.
+- I tried two ways to swing the cannon. The first moved at a constant speed and flipped direction when it hit the limit, which needed a flag and manual checks every frame. The second was a sine wave over elapsed time, which has easing built in and reverses on its own. I went with the sine wave, and now the only setting is how long one full swing takes.
+- A single Physics Material 2D did most of the work for the bounces. I put the same material on the bounce pads.
+- Writing a design document first made scope decisions easier. The "future scope" list turned into the to-do list for the polish pass.
+- Stars that sit in risky spots make players think about the route, not just the shot.
 
 </Learnings>

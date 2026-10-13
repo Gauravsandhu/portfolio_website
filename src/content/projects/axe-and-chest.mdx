@@ -1,0 +1,44 @@
+export const meta = {
+  title: "Axe and Chest",
+  summary: "Two low-poly game assets modelled, UV-unwrapped and textured in Blender.",
+  status: "finished",
+  category: "3d-art",
+  cover: "/projects/axe-and-chest/chest.jpg",
+  started: "2026-09-01",
+  ended: "2026-09-23",
+  tags: ["Blender", "UV mapping", "Texturing", "Game assets"],
+  links: {},
+};
+
+## What it is
+
+Two game-ready props I made in Blender: a viking-style axe inspired by the Leviathan Axe from God of War, and a fantasy treasure chest. I modelled each one from reference images, UV-unwrapped it and textured it from a single image map.
+
+### The axe
+
+![The finished axe: a dark stone-textured blade on a wooden handle with a red wrapped grip](/projects/axe-and-chest/axe.jpg)
+
+609 vertices and 1,093 triangles across four parts: the blade, the handle, the grip wrap and the pommel. Each part uses a different texture (stone for the blade, two kinds of wood and a red knit for the grip), all packed into one 1024×1024 UV layout.
+
+![The axe's UV layout: the blade, handle strips and pommel caps laid flat on one texture](/projects/axe-and-chest/axe-uv.jpg)
+
+### The chest
+
+![The finished chest from the front, the side and above: bark-textured wood, black iron bands and a gold lock](/projects/axe-and-chest/chest.jpg)
+
+736 vertices across four parts: the body, the iron bands, the corner caps and the lock. It uses three materials, wood, dark metal and gold, which share one UV layout.
+
+![The chest's UV layout](/projects/axe-and-chest/chest-uv.jpg)
+
+## Why I started it
+
+It was my mid-term for a Game Asset Design class, where I had to take two props from reference to finished, textured model. I picked an axe and a chest because they're classic game items, and each one tests something different. The axe is about silhouette and a long, thin handle. The chest is about hard-surface shapes and lots of repeated detail.
+
+<Learnings>
+
+- UV unwrapping is where a model goes from "looks okay" to "looks finished". Bad seams and stretched islands show up immediately once a texture goes on.
+- Fitting several materials into one texture layout takes planning. Island size decides how much detail each part gets.
+- Keeping the poly count low forces you to think about which edges actually matter for the silhouette.
+- Working from reference images is faster than guessing, even for simple shapes.
+
+</Learnings>
